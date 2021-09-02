@@ -1,0 +1,96 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+	
+	var tela = document.querySelector("canvas");
+	var pincel = tela.getContext("2d");
+
+	var p1 = {a:180, b:200, c:295, d:350, e:302 }
+	var p2 = {a:250, b:200, c:370, d:210, e:300 }
+	var p3 = {a:270, b:135, c:330, d:240, e:225 }
+	
+
+	function desenhaEstrela(){
+
+	pincel.clearRect(0, 0, 600, 400);
+
+	pincel.fillStyle = "#8B0000";
+	pincel.beginPath();
+	pincel.moveTo(p1.a, p1.b);
+	pincel.lineTo(p1.c,p1.b);
+	pincel.lineTo(p1.d,p1.e);
+	pincel.fill();
+
+	pincel.fillStyle = "#8B0000";
+	pincel.beginPath();
+	pincel.moveTo(p2.a,p2.b);
+	pincel.lineTo(p2.c,p2.b);
+	pincel.lineTo(p2.d,p2.e);
+	pincel.fill();
+
+    
+	pincel.fillStyle = "#8B0000";
+	pincel.beginPath();
+	pincel.moveTo(p3.a, p3.b);
+	pincel.lineTo(p3.c, p3.a);
+	pincel.lineTo(p3.d, p3.e);
+	pincel.fill();
+}
+
+	
+
+	desenhaEstrela();
+
+	window.addEventListener('keydown',animacao);
+
+	var setaDireita= 39, setaEsquerda = 37, setaBaixo = 40, setaCima = 38;
+
+	function animacao(codtecla)
+	{
+		var key= codtecla.keyCode;
+			
+		if (key == setaDireita){
+			p1.a++;
+			p1.b++;
+			p1.c++;
+			p1.d++;
+			p1.e++;
+
+			p2.a++;
+			p2.b++;
+			p2.c++;
+			p2.d++;
+			p2.e++;
+
+			p3.a++;
+			p3.b++;
+			p3.c++;
+			p3.d++;
+			p3.e++;
+
+
+		}
+		else if (key == setaEsquerda){
+			p1.a--;
+			p1.b--;
+			p1.c--;
+			p1.d--;
+			p1.e--;
+
+			p2.a--;
+			p2.b--;
+			p2.c--;
+			p2.d--;
+			p2.e--;
+
+			p3.a--;
+			p3.b--;
+			p3.c--;
+			p3.d--;
+			p3.e--;
+		}
+			
+			desenhaEstrela();
+	}
+
+</script>
